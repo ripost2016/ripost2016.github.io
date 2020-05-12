@@ -5,6 +5,9 @@ azul    #0776bb
 naranja #f08642
 */
 
+/*******************************************************************/
+/* INDEX / HOME PAGE */
+/*******************************************************************/
 
 .access-top,
 .access-bottom {
@@ -113,8 +116,37 @@ naranja #f08642
     }
 }
 
-/* @media (min-width: 992px) {
-    .logos-container__images .logo-item {
-        width: 45%;
-    }
-} */
+/*******************************************************************/
+/* LOGIN PAGE */
+/*******************************************************************/
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../assets/loginbackground.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.login__box {
+    width: 90%;
+    background-color: #f7f7f7;
+    border-radius: 15px;
+    max-width: 550px;
+}
+
+.facebook {
+    background-color: #3b5998;
+}
+
+.twitter {
+    background-color: #00acee;
+}
