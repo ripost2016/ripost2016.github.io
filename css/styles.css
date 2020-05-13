@@ -1,7 +1,7 @@
 /*
-fucsia  #e95694
+fucsia  #e95694     rgba(237, 138, 183, 0.5)
 rosa    #ed8ab7
-azul    #0776bb
+azul    #0776bb     rgba(7, 118, 187, 0.5)
 naranja #f08642
 */
 
@@ -11,7 +11,7 @@ naranja #f08642
 
 .access-top,
 .access-bottom {
-    background-image: linear-gradient(-50deg, #0776bb, #ed8ab7);
+    background-image: linear-gradient(-50deg, rgba(7, 118, 187, 0.5), rgba(237, 138, 183, 0.5));
 }
 
 #carousel .carousel-inner .carousel-item img {
