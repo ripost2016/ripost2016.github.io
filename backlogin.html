@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Fontawesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="./css/login_styles20.css">
+
+</head>
+
+<body>
+    <main>
+        <section class="login__box pt-2 pb-2 px-3">
+            <div class="login__logo mb-2 text-center">
+                <img class="img-fluid" src="/assets/landing20_img/defaultlogomini.png" alt="logo soul">
+            </div>
+
+            <!-- TABS -->
+            <ul class="nav nav-tabs" id="logintab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="signin-tab" data-toggle="tab" href="#text-register" role="tab" aria-controls="signin-tab"
+                        aria-selected="true">REGÍSTRATE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="login-tab" data-toggle="tab" href="#text-session" role="tab" aria-controls="login-tab"
+                        aria-selected="false">INICIA SESIÓN</a>
+                </li>
+            </ul>
+            
+            <!-- TABS CONTENT -->
+            <div class="bg-white border border-top-0 p-3 tab-content rounded-bottom">
+                <div class="tab-pane active" id="text-register" role="tabpanel" aria-labelledby="register-tab">
+                    <!-- REGISTER BUTTONS -->
+                    <div class="align-items-center d-flex px-2 mb-3 rounded facebook">
+                        <i class="fab fa-facebook-square fa-3x text-white-50"></i>
+                        <button type="button" class="btn py-0 w-100 text-white">Conéctate con Facebook</button>
+                    </div>
+
+                    <div class="align-items-center d-flex px-2 mb-3 rounded twitter">
+                        <i class="fab fa-twitter-square fa-3x text-white-50"></i>
+                        <button type="button" class="btn py-0 w-100 text-white">Conéctate con Twitter</button>
+                    </div>
+
+                    <p class="text-center">O REGÍSTRATE CON TU EMAIL</p>
+
+                    <!-- FORM -->
+                    <form>
+                        <div class="form-group">
+                          <label class="sr-only" for="signin-email">Email address</label>
+                          <input type="email" class="form-control" id="signin-email" placeholder="Correo electrónico" aria-describedby="emailHelp">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-success text-white w-100 py-2">INICIAR REGISTRO</button>
+                    </form>
+                </div>
+            
+                <div class="tab-pane" id="text-session" role="tabpanel" aria-labelledby="session-tab">
+                    <form>
+                        <div class="form-group">
+                          <label for="loginEmail">Correo electrónico</label>
+                          <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                          <label for="loginPassword">Password</label>
+                          <input type="password" class="form-control" id="loginPassword">
+                        </div>
+
+                        <button type="submit" class="btn btn-success py-2 w-100">INICIA SESIÓN</button>
+                      </form>
+                </div>
+            </div>
+
+            <p class="text-right mt-5"><a href="#">¿Necesitas ayuda?</a></p>
+        </section>
+    </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

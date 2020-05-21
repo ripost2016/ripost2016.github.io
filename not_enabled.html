@@ -19,6 +19,8 @@
 </head>
 
 <body>
+    <div id="messages" class="alert d-none"></div>
+
     <main>
         <section class="notification__box pt-2 pb-5 px-3">
             <div class="notification__logo mb-2 text-center">
@@ -31,14 +33,24 @@
             </div>
 
            <!-- FORM -->
-           <form id="notification" class="mb-4">
+           <form method="POST" action="/api/landing20/sector-notification-email" id="notification" class="mb-4">
+               <input type="hidden" name="sector" value="{{ $sector }}">
+               <input type="hidden" name="_token" id="csrf_token_field" value="{{ csrf_token() }}">
+
                 <div class="form-group mb-4">
                     <label class="sr-only" for="signin-email">Email address</label>
-                    <input type="email" class="form-control" id="signin-email" placeholder="Correo electrónico" aria-describedby="emailHelp">
+                    <input type="email" name="email" class="form-control" id="signin-email" placeholder="Correo electrónico" aria-describedby="emailHelp">
                 </div>
             
-                <button type="submit" class="btn btn-success text-white w-100 py-2">ENVIAR</button>
+                <button id="submit-button" type="submit" disabled="true" class="btn btn-success text-white w-100 py-2">ENVIAR</button>
             </form>
+
+            <!-- PRIVACY -->
+            <div class="privacy-message text-center">
+                <p>
+                    Al hacer click en el botón “Enviar” declaras conocer y aceptar nuestra  <a href="https://soulimproveledge.com/politica-de-privacidad/" target="_blank">Política de Privacidad.</a>
+                </p>
+            </div>
         </section>
     </main>
 
@@ -53,6 +65,61 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+
+    <script>
+        var notificationForm = document.getElementById('notification');
+        var email = document.getElementById('signin-email');
+        var button = document.getElementById('submit-button');
+
+        // disable submit button if blank input field
+        email.addEventListener('input', function(e) {
+            if (e.target.value !== '') {
+                button.disabled = false;
+            } else {
+                button.disabled = true;
+            }
+        });
+
+        // Handle submit
+        notificationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var url = '/api/landing20/sector-notification-email';
+            var config = {
+                method: 'POST',
+                body: JSON.stringify({
+                    email: e.target.email.value,
+                    sector: e.target.sector.value,
+                    _token: e.target._token.value,
+                }),
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            };
+
+            fetch(url, config)
+                .then(res => {
+                    var messageBox = document.getElementById('messages');
+                    email.value = '';
+
+                    if (res.ok) {
+                        // feedback ok
+                        messageBox.classList = 'alert alert-success d-block';
+                        messageBox.innerHTML = 'Gracias, email guardado correctamente';
+
+                        // redirect to home after 3s
+                        setTimeout(() => {
+                            window.location = '/';
+                        },3000);
+                    } else {
+                        messageBox.classList = 'alert alert-danger d-block';
+                        messageBox.innerHTML = 'Ha habido un error al guardar, por favor, inténtelo más tarde, gracias.';
+                    }
+                })
+                .catch(error => console.error('ERROR ', error));
+        });
+
+    </script>
 </body>
 
 </html>

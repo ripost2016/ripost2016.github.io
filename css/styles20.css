@@ -3,30 +3,55 @@ fucsia  #e95694     rgba(237, 138, 183, 0.5)
 rosa    #ed8ab7
 azul    #0776bb     rgba(7, 118, 187, 0.5)
 naranja #f08642
+
+background sección tu alma #FFF7F3
 */
+/*******************************************************************/
+/* GLOBAL VARIABLES */
+/*******************************************************************/
+:root {
+    --soul-fucsia: #e95694;
+    --soul-rosa: #ed8ab7;
+    --soul-azul: #0776bb;
+    --soul-naranja: #f08642;
+    --soul-bg-soul: #FFF7F3;
+}
+
+.color-soul-naranja {
+    color: var(--soul-naranja);
+}
 
 /*******************************************************************/
 /* INDEX / HOME PAGE */
 /*******************************************************************/
 
 .access-top,
-.access-bottom {
-    background-image: linear-gradient(-50deg, rgba(7, 118, 187, 0.5), rgba(237, 138, 183, 0.5));
+footer {
+    background-image: linear-gradient(-50deg, var(--soul-naranja), var(--soul-fucsia));
 }
 
-#carousel .carousel-inner .carousel-item img {
-    height: auto;
-}
-
-@media (min-width: 768px) {
-    #carousel .carousel-inner .carousel-item img {
-        height: 500px;
-    }
+#video-hero {
+    width: 100%;
 }
 
 @media (min-width: 1200px) {
-    #carousel .carousel-inner .carousel-item img {
-        height: 700px;
+    #video-hero {
+        height: 800px;
+    }
+}
+
+#video-hero video {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+@media (min-width: 576px) {
+    .success {
+        background-image: url("/assets/landing20_img/SliderDatos.jpg");
+        background-position: center left;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 }
 
@@ -35,17 +60,45 @@ naranja #f08642
 }
 
 .success .success__numbers .plus-numbers {
-    font-size: 1.5rem;
+    font-size: 1.5em;
+    line-height: 1em;
+}
+
+.success .success__numbers .plus-numbers .plus{
+    font-size: 1.2em;
+    color: var(--soul-naranja);
 }
 
 @media (min-width: 992px) {
     .success .success__numbers .plus-numbers {
-        font-size: 2.5rem;
+        font-size: 2.5em;
+    }
+
+    .success .success__numbers .plus-text {
+        font-size: 1.4em;
     }
 }
 
+.soul-desc img {
+    position: relative;
+    margin-top: -28px;
+    margin-right: -14px;
+}
+
+.soul-desc span {
+    font-size: 1.6em;
+}
+
 .your-soul {
-    background-color: #f9f9f9;
+    background-color: var(--soul-bg-soul);
+}
+
+.souls .card {
+    transition: .3s
+}
+
+.souls .card:hover {
+    box-shadow:  2px 2px 30px 2px rgba(0,0,0,0.2);
 }
 
 @media (min-width: 576px) {
@@ -60,36 +113,46 @@ naranja #f08642
     }
 }
 
-.souls .card .soul-icon {
-    background: linear-gradient(45deg, #e95694, #f08642);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.souls .card.overlay::after {
-    content: '';
-    position: absolute;
+.souls .card .footer a {
+    background-color: var(--soul-fucsia);
+    border-radius: 100px;
+    line-height: 1.5em;
     width: 100%;
-    height: 100%;
-    background-color: rgba(128, 0, 128, 0.15);
 }
 
-.souls .card.overlay .footer a {
-    background-color: rgba(128, 0, 128, 0.5);
+.souls .card .footer a.sector-active {
+    background-color: var(--soul-naranja);
+    font-size: 1.5em;
+    line-height: 2em;
+}
+
+.logos-container__text-image {
+    padding: 0 15%;
+}
+
+.logos-container__text-image p {
+    font-size: 3.5em;
+}
+
+.logos-container__text-image img {
+    margin-top: -30px;
     position: relative;
-    z-index: 10;
+    left: 100px;
 }
 
-.logo-soultarget {
-    position: relative;
+.logos-container__text-message {
+    font-size: 1.1em;
+    margin-bottom: 0;
 }
 
-.soultarget {
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(25px);
+@media (min-width: 576px) {
+    .logos-container__text-message {
+        font-size: 1.5em;
+    }
+}
+
+.logos-container__images {
+    background-color: var(--soul-bg-soul);
 }
 
 .logos-container__images .logo-item {
@@ -113,5 +176,39 @@ naranja #f08642
 @media (min-width: 576px) {
     .logos-container__images .logo-item {
         width: 15%;
+    }
+}
+
+#access-bottom {
+    background-image: url("/assets/landing20_img/data-race.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+#access-bottom .container {
+    padding: 6em 0;
+}
+
+@media (min-width: 768px) {
+    #access-bottom .container h4 {
+        font-size: 1.8em;
+    }
+
+    #access-bottom .container {
+        padding: 10em 0;
+    }
+
+    #access-bottom {
+        background-position: top left;
+    }
+}
+
+@media (min-width: 1200px) {
+    #access-bottom .container h4 {
+        font-size: 2.4em;
+    }
+
+    #access-bottom .container {
+        padding: 12em 0;
     }
 }
